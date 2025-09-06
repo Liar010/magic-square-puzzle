@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔方陣パズル</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>魔方陣パズル</h1>
+            <p class="subtitle">縦・横・斜めの合計が同じになるように数字を配置しよう！</p>
+        </header>
+
+        <div class="game-controls">
+            <div class="difficulty-selector">
+                <label>難易度:</label>
+                <button class="diff-btn active" data-size="3" data-mode="tutorial">チュートリアル(3×3)</button>
+                <button class="diff-btn" data-size="4" data-mode="normal">4×4</button>
+                <button class="diff-btn" data-size="5" data-mode="normal">5×5</button>
+                <button class="diff-btn" data-size="6" data-mode="normal">6×6</button>
+            </div>
+            
+            <div class="game-buttons">
+                <button id="newGameBtn" class="primary-btn">新しいゲーム</button>
+                <button id="showAnswerBtn" class="secondary-btn">答えを見る</button>
+                <button id="resetBtn" class="secondary-btn">リセット</button>
+            </div>
+        </div>
+
+        <div class="game-stats">
+            <div class="stat-item">
+                <span class="stat-label">時間:</span>
+                <span id="timer">00:00</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">ミス:</span>
+                <span id="mistakes">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">ベストタイム:</span>
+                <span id="bestTime">--:--</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">進捗:</span>
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameBoard" class="game-board">
+            <!-- 魔方陣のグリッドがここに生成される -->
+        </div>
+
+        <div class="sum-display">
+            <div class="sum-info">
+                <span>目標合計値:</span>
+                <span id="targetSum" class="target-sum">15</span>
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <div id="tutorialInfo" class="tutorial-info" style="display: none;">
+            <details>
+                <summary>📖 ルールとヒント</summary>
+                <div class="tutorial-content">
+                    <p><strong>基本ルール:</strong></p>
+                    <ul>
+                        <li>1から<span class="max-number">9</span>までの数字を1回ずつ使用</li>
+                        <li>縦・横・斜めの合計が<span class="highlight-text">15</span>に</li>
+                        <li>重複する数字は使えません</li>
+                    </ul>
+                    <p class="hint-text">💡 中央のマスには5が入ることが多いです</p>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
